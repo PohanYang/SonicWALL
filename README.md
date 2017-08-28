@@ -43,6 +43,7 @@ Now we have 1.A steaming record with sonicWALL classifier, 2.A python code for e
 We use a shell file let machine can automation. When we have new network flow, python can save it information in real-time.  
 we save a shell data like this:  
 > tail -f /var/log/sonicwall|grep "Alert" | python buffer.py  
+  
 It can automation grep "Alert" from "tail -f /var/log/sonicall" file, and be a input drop into python code.  
 That's it, we create a sonicWALL firewall database caputure.  
 When we have database we can extract in for data mining show on website.  
