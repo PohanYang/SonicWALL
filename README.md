@@ -8,13 +8,13 @@ This part we introduction how we do about save a steaming flow in database.
   
 ###Ready for sonicWALL  
 We follow the whitepaper like this:  
-![readmeimg1](https://raw.githubusercontent.com/PohanYang/圖一)  
+![img1](https://github.com/PohanYang/SonicWALL/blob/master/img/sonicwall_connect.jpg)  
   
 Then we use syslog let flow throw it form sonicWALL.  
-![readmeimg2](https://raw.githubusercontent.com/PohanYang/圖)  
+![img2](https://github.com/PohanYang/SonicWALL/blob/master/img/sys.png)  
   
 In this time, we can use wireshark to check flow throw from syslog in our machine(there we use vmware virtual machine)  
-![readmeimg3](https://raw.githubusercontent.com/PohanYang/圖)  
+![img3](https://github.com/PohanYang/SonicWALL/blob/master/img/003.PNG)  
 there we can see the protocol is syslog, it means work.  
   
 Now we went to capture the flow information.  
@@ -22,10 +22,11 @@ Now we went to capture the flow information.
 2. flow's five tuple(protocol, source address, source port, destination addres, destination port).  
 In our machine we can type at output file dirt(/var/log/sonicwall)  
 > $tail -f sonicwall  
+  
 we can see something information detail, that extract using python 
 In first, we build a database and table like this:  
-![readmeimg4](https://raw.githubusercontent.com/PohanYang/圖)  
-![readmeimg5](https://raw.githubusercontent.com/PohanYang/圖)  
+![img4](https://github.com/PohanYang/SonicWALL/blob/master/img/db.PNG)  
+![img5](https://github.com/PohanYang/SonicWALL/blob/master/img/dbc.PNG)  
   
 then we can use python code to insert data follow this(full code can check in /sonicwall_code/buffer.py):  
 > conn = MySQLdb.connect(host='localhost',user='root',passwd='123',db='sonicwall')  
